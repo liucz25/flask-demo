@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 style="text-align: center;">
+        Update Contact Form
+    </h2>
+
+    {% with messages = get_flashed_messages()%}
+    {% if messages%}
+    {% for message in messages%}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {% for message in form.name.errors%}
+    <P>{{ message }}
+    <P>
+        {% endfor %}
+
+        {% for message in form.email.errors%}
+    <p>{{ message }}</p>
+    {% endfor %}
+
+    <form action="/update/{{form.id.data}}" method="post">
+        <fieldset>
+            <legend>Contect Form</legend>
+            {{form.hidden_tag()}}
+            <div style="color: aquamarine;">
+                {{form.name.label}}<br>
+                {{form.name}}<br>
+                {{form.gender.label}}
+                {{form.gender}}<br>  
+                {{form.address.label}}<br>
+                {{form.address}}<br> 
+                
+                {{form.email.label}}<br>
+                {{form.email}}<br>  
+                {{form.age.label}}
+                {{form.age}}<br>
+                {{form.languages.label}}
+                {{form.languages}}<br>         
+                {{form.submit}}
+            </div>
+        </fieldset>
+    </form>
+</body>
+
+</html>

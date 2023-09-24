@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="/static/js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/sijax/sijax.js"></script>
+    <script type="text/javascript">
+        {{g.sijax.get_js() | safe }}
+    </script>
+</head>
+<body>
+    <a href="javascript://" onclick="Sijax.request('say_hello',['zhangsan','lisi']);">
+    Say hello !</a>
+    <a href="javascript://" onclick="Sijax.request('say_goodbye');">
+        Say goodbye !</a>
+    
+</body>
+</html>
